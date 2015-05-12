@@ -1,11 +1,14 @@
 package com.example.chathuranga_pamba.gps;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -13,6 +16,7 @@ public class MainActivity extends ActionBarActivity {
 
 
     Button btnShowLocation;
+    TextView textDeviceID;
 
     GpsTracker gps;
 
@@ -21,8 +25,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        textDeviceID = (TextView)findViewById(R.id.deviceid);
+        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        AndroidTelephonyManager androidTelephonyManager = new AndroidTelephonyManager();
+        textDeviceID.setText(androidTelephonyManager.getDeviceID(telephonyManager));
+
 
         btnShowLocation = (Button) findViewById(R.id.show_location);
+
 
         btnShowLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,12 +50,18 @@ public class MainActivity extends ActionBarActivity {
                 }
 
 
+
+
+
             }
         });
-
-
-
     }
+
+
+
+
+
+
 
 
 

@@ -17,5 +17,16 @@
 
         />
 
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="hello"
+        />
+
+        <TextView
+            android:id="@+id/deviceid"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"/>
+
 
 </RelativeLayout>
