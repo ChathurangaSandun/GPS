@@ -1,0 +1,76 @@
+For get emi numnber code
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Java Code
+_____________
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.widget.TextView;
+
+public class AndroidTelephonyManager extends Activity {
+/** Called when the activity is first created. */
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+    TextView textDeviceID = (TextView)findViewById(R.id.deviceid);
+
+    //retrieve a reference to an instance of TelephonyManager
+    TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+
+    textDeviceID.setText(getDeviceID(telephonyManager));
+
+}
+
+String getDeviceID(TelephonyManager phonyManager){
+
+ String id = phonyManager.getDeviceId();
+ if (id == null){
+  id = "not available";
+ }
+
+ int phoneType = phonyManager.getPhoneType();
+ switch(phoneType){
+ case TelephonyManager.PHONE_TYPE_NONE:
+  return "NONE: " + id;
+
+ case TelephonyManager.PHONE_TYPE_GSM:
+  return "GSM: IMEI=" + id;
+
+ case TelephonyManager.PHONE_TYPE_CDMA:
+  return "CDMA: MEID/ESN=" + id;
+
+ /*
+  *  for API Level 11 or above
+  *  case TelephonyManager.PHONE_TYPE_SIP:
+  *   return "SIP";
+  */
+
+ default:
+  return "UNKNOWN: ID=" + id;
+ }
+
+}
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+desiging xml
+_____________
+
+
+<linearlayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
+<textview android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/hello">
+<textview android:id="@+id/deviceid" android:layout_height="wrap_content" android:layout_width="fill_parent">
+</textview></textview></linearlayout> 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+in mainfest.xml
+_____________
+
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
