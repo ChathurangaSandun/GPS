@@ -1,5 +1,9 @@
 For get emi numnber code
 
+http://stackoverflow.com/questions/1972381/how-to-programmatically-get-the-devices-imei-esn-in-android/1972404#1972404
+
+The method getDeviceId() of TelephonyManager returns the unique device ID, for example, the IMEI for GSM and the MEID or ESN for CDMA phones. Return null if device ID is not available.
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Java Code
