@@ -10,23 +10,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="show Location"
-        android:layout_centerVertical="true"
+
+
+        android:layout_below="@+id/timeText"
         android:layout_centerHorizontal="true"
-
-
-
-        />
-
+        android:layout_marginTop="61dp" />
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:text="hello"
-        />
-
-        <TextView
             android:id="@+id/deviceid"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"/>
+
+    <TextView
+        android:id="@+id/latitudeText"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/deviceid"
+        android:layout_toStartOf="@+id/show_location"
+        android:layout_marginTop="28dp"
+        android:layout_alignRight="@+id/deviceid"
+        android:layout_alignEnd="@+id/deviceid" />
+
+    <TextView
+        android:id="@+id/longitudeText"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/latitudeText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/longitudeText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/dateText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

@@ -22,13 +22,13 @@ public class AndroidTelephonyManager  {   // for imei number
         int phoneType = phonyManager.getPhoneType();
         switch(phoneType){
             case TelephonyManager.PHONE_TYPE_NONE:
-                return "NONE: " + id;
+                return id;
 
             case TelephonyManager.PHONE_TYPE_GSM:
-                return "GSM: IMEI=" + id;
+                return  id;
 
             case TelephonyManager.PHONE_TYPE_CDMA:
-                return "CDMA: MEID/ESN=" + id;
+                return  id;
 
  /*
   *  for API Level 11 or above
@@ -37,7 +37,7 @@ public class AndroidTelephonyManager  {   // for imei number
   */
 
             default:
-                return "UNKNOWN: ID=" + id;
+                return  id;
         }
 
     }
